@@ -67,11 +67,11 @@ const PassagerInvoice = () => {
 
   //Query to Fetch All Client Physique
   const { data: allProduit = [] } = useFetchProduitsQuery();
-  const mTotalHT = allProduit.reduce(
-    (sum, i) => (sum += i.MontantTotalProduit),
-    0
-  );
-  const mTotal = mTotalHT * 1.19;
+  // const mTotalHT = allProduit.reduce(
+  //   (sum, i) => (sum += i.MontantTotalProduit),
+  //   0
+  // );
+  // const mTotal = mTotalHT * 1.19;
   // Mutation to create a new Client
   const [createClientPhysique] = useAddClientPhysiqueMutation();
 
@@ -255,26 +255,38 @@ const PassagerInvoice = () => {
                         {selected.map((s) => {
                           return (
                             <div className="mb-2">
-                              <strong>Nom Client: </strong>
-                              <span>{s.raison_sociale}</span>
-                              <div>
-                                <strong>C.I.N: </strong>
-                                <span>{s.cin}</span>
-                              </div>
-                              <div>
-                                <strong>Numéro Télephone: </strong>
-                                <span>{s.tel}</span>
-                              </div>
-                              <div>
-                                <strong>Adresse: </strong>
-                                <span>{s.adresse}</span>
-                              </div>
-                              <div>
-                                <strong>Email: </strong>
-                                <span>{s.mail}</span>
-                              </div>
+                              {s.idclient_p === 18 ? (
+                                <>
+                                  <strong>Nom : </strong>
+                                  <span>{s.raison_sociale}</span>
 
-                              <div className="mb-2 mb-lg-0"></div>
+                                  <div>
+                                    <strong>Adresse : </strong>
+                                    <span>{s.adresse}</span>
+                                  </div>
+                                </>
+                              ) : (
+                                <>
+                                  <strong>Nom : </strong>
+                                  <span>{s.raison_sociale}</span>
+                                  <div>
+                                    <strong>C.I.N: </strong>
+                                    <span>{s.cin}</span>
+                                  </div>
+                                  <div>
+                                    <strong>Numéro Télephone: </strong>
+                                    <span>{s.tel}</span>
+                                  </div>
+                                  <div>
+                                    <strong>Adresse: </strong>
+                                    <span>{s.adresse}</span>
+                                  </div>
+                                  <div>
+                                    <strong>Email: </strong>
+                                    <span>{s.mail}</span>
+                                  </div>
+                                </>
+                              )}
                             </div>
                           );
                         })}
@@ -387,7 +399,7 @@ const PassagerInvoice = () => {
                             <td style={{ width: "150px" }}>
                               <Form.Control
                                 type="number"
-                                value={mTotalHT}
+                                // value={mTotalHT}
                                 id="cart-subtotal"
                                 placeholder="0.00"
                               />
@@ -398,7 +410,7 @@ const PassagerInvoice = () => {
                             <td>
                               <Form.Control
                                 type="number"
-                                value={precise(mTotal - mTotalHT)}
+                                // value={precise(mTotal - mTotalHT)}
                                 id="cart-tax"
                                 placeholder="$0.00"
                               />
@@ -408,7 +420,7 @@ const PassagerInvoice = () => {
                             <th scope="row">Montant Total</th>
                             <td>
                               <Form.Control
-                                value={precise(mTotal)}
+                                // value={precise(mTotal)}
                                 type="number"
                                 id="cart-total"
                                 placeholder="0.00"

@@ -5,18 +5,11 @@ export interface Produit {
   nomProduit: string;
   imageProduit: string;
   marque: string;
-  // quantite: number;
-  prixAchatHt: number;
-  prixAchatTtc: number;
-  prixVente: number;
-  Benifice: number;
-  PourcentageBenifice: number;
-  PrixRemise: number;
-  PourcentageRemise: number;
-  MontantTotalProduit: number;
   remarqueProduit: string;
   categoryID?: number;
-  fournisseurID?: number;
+  nom?: string;
+  sousCategoryID?: number;
+  title?: string;
 }
 
 export const produitSlice = createApi({

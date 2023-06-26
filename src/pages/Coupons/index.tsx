@@ -12,8 +12,6 @@ import {
 import Breadcrumb from "Common/BreadCrumb";
 import TableContainer from "Common/TableContainer";
 import { Link } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
 
 import offerbanner from "../../assets/images/ecommerce/offer-banner.jpg";
 
@@ -737,7 +735,6 @@ const Coupons = () => {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
-      <ToastContainer />
     </React.Fragment>
   );
 };
